@@ -85,7 +85,7 @@
     text-align: center;
 }
 
-.formFild:nth-child(5) label {
+.formFild:nth-child(6) label {
     color: #1a73e8 ;
 }
 
@@ -138,4 +138,19 @@ input[type='checkbox']:focus{
 
 .formButtons a:hover {
     color: #004aaa;
+}
+
+@media (max-width : 440px){
+
+    .formcontainer{
+        padding: 20px;
+        margin: 50px 20px;
+    }
+
+    .formcontainer{
+        width: 90%;
+    }
+    .uncomplted{
+        width: 90%;
+    }
 }

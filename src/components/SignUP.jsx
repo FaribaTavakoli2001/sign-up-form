@@ -112,8 +112,8 @@ const SignUP = () => {
                  value={data.isAccepted} 
                  onChange={changeHandler} 
                  onFocus={focusHandler}/> 
-                 {errors.isAccepted && touched.isAccepted &&  <span>{errors.isAccepted}</span>}
                  </div>
+                 {errors.isAccepted && touched.isAccepted &&  <span>{errors.isAccepted}</span>}
                  </div>
                  <div className={styles.formButtons}>
                  <a href='#'>Log in</a>
