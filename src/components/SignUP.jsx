@@ -1,6 +1,7 @@
 import React , {useEffect, useState} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styles from './signUp.module.css';
 
 import { notify } from './toast';
 import { validate } from './validate';
@@ -21,7 +22,6 @@ const SignUP = () => {
 
     useEffect(() => {
         setErrors(validate(data))
-           console.log(errors)
     } , [data, touched])
 
     const changeHandler = event => {
@@ -56,40 +56,69 @@ const SignUP = () => {
     }
     
  
-
-
-
     return (
-        <div>
-            <form onSubmit={submitHandler}>
-                 <h2>SignUp</h2>
-                 <div>
+        <div className={styles.container}>
+            <form onSubmit={submitHandler} className={styles.formcontainer}>
+                 <h1 className={styles.header}>SignUp</h1>
+                 <div className={styles.formFild}>
                  <lable>Name</lable>
-                 <input type='text' name='name' value={data.name} onChange={changeHandler} onFocus={focusHandler}/> 
-                 {errors.name && touched.name && <spam>{errors.name}</spam>}
+                 <input className={(errors.name && touched.name) ? styles.uncomplted : styles.formInput} 
+                 type='text' 
+                 name='name' 
+                 value={data.name} 
+                 onChange={changeHandler}n
+                 onFocus={focusHandler}/> 
+                 {errors.name && touched.name && <span>{errors.name}</span>}
                  </div>
-                 <div>
-                 <lable>Email</lable>
-                 <input type='text' name='email' value={data.email} onChange={changeHandler} onFocus={focusHandler}/>
-                 {errors.email && touched.email && <spam>{errors.email}</spam>}
+                 <div  className={styles.formFild}>
+                 <lable >Email</lable>
+                 <input 
+                 className={(errors.email && touched.email) ? styles.uncomplted : styles.formInput}
+                 type='text' 
+                 name='email' 
+                 value={data.email} 
+                 onChange={changeHandler} 
+                 onFocus={focusHandler}/>
+                 {errors.email && touched.email && <span>{errors.email}</span>}
                  </div>
-                 <div>
+                 <div className={styles.formFild}>
                  <lable>Password</lable>
-                 <input type='password' name='password' value={data.password} onChange={changeHandler} onFocus={focusHandler}/> 
-                 {errors.password && touched.password &&  <spam>{errors.password}</spam>}
+                 <input
+                 className={(errors.password && touched.password) ? styles.uncomplted : styles.formInput} 
+                 type='password' 
+                 name='password' 
+                 value={data.password} 
+                 onChange={changeHandler} 
+                 onFocus={focusHandler}/> 
+                 {errors.password && touched.password &&  <span>{errors.password}</span>}
                  </div>
-                 <div>
+                 <div className={styles.formFild}>
                  <lable>Confirm Password</lable>
-                 <input type='password' name='confirmPassword' value={data.confirmPassword} onChange={changeHandler} onFocus={focusHandler}/>
-                 {errors.confirmPassword && touched.confirmPassword &&  <spam>{errors.confirmPassword}</spam>}
+                 <input 
+                 className={(errors.confirmPassword && touched.confirmPassword) ? styles.uncomplted : styles.formInput}
+                 type='password' 
+                 name='confirmPassword' 
+                 value={data.confirmPassword} 
+                 onChange={changeHandler} 
+                 onFocus={focusHandler}/>
+                 {errors.confirmPassword && touched.confirmPassword &&  <span>{errors.confirmPassword}</span>}
                  </div>
-                 <div>
+                 <div className={styles.formFild}>
+                 <div className={styles.checkBoxContainer}>
                  <lable>I Accept terms of privacy policy</lable>
-                 <input type='checkbox' name='isAccepted' value={data.isAccepted} onChange={changeHandler} onFocus={focusHandler}/> 
-                 {errors.isAccepted && touched.isAccepted &&  <spam>{errors.isAccepted}</spam>}
+                 <input 
+                 type='checkbox' 
+                 name='isAccepted' 
+                 value={data.isAccepted} 
+                 onChange={changeHandler} 
+                 onFocus={focusHandler}/> 
+                 {errors.isAccepted && touched.isAccepted &&  <span>{errors.isAccepted}</span>}
                  </div>
+                 </div>
+                 <div className={styles.formButtons}>
                  <a href='#'>Log in</a>
                  <button type='submit'>Sign UP</button>
+                 </div>
             </form>
             <ToastContainer />
         </div>
